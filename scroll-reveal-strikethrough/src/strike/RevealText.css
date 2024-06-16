@@ -1,0 +1,110 @@
+.scrolling-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  text-align: center;
+  font-size: 7.5em;
+  background: black;
+  padding: 0; 
+}
+
+.first-line, .second-line, .third-line {
+  margin: 0; 
+  padding: 0; 
+}
+
+
+.first-line {
+  margin-bottom: -0.5rem;
+}
+
+.second-line {
+  margin-bottom: -0.5rem;
+}
+
+.digital {
+  color: rgb(44, 44, 44); 
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.second-line {
+  color: rgb(44, 44, 44); 
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.third-line {
+  color: rgb(44, 44, 44); 
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+@keyframes text-reveal {
+  0% {
+    color: rgb(78, 78, 78);
+    transform: scale(1);
+  }
+  100% {
+    color: white;
+    transform: scale(1.2); 
+  }
+}
+
+.scrolled .digital {
+  animation: text-reveal 1s forwards;
+}
+
+
+.scrolled .second-line span {
+  animation: text-reveal 2s forwards;
+}
+
+.scrolled .third-line .strike {
+  animation: text-reveal 2.5s forwards ;
+  position: relative;
+}
+
+.scrolled .strike::before
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 55%;
+    height: 10px; 
+    width: 100%;
+    background-color: rgb(218, 189, 0); 
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: line-through 1.5s forwards;
+}
+
+@keyframes line-through {
+  to {
+      transform: scaleX(1);
+  }
+}
+
+.scrolling-text-container span {
+  display: inline-block;
+  transform-origin: center center;
+}
+
+.scrolled .new-word {
+  font-family: cursive;
+  color: rgb(231, 200, 0) ;
+  font-size: 5rem;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn 7s forwards;
+  margin-left: 4rem; 
+  transform: rotate(12deg);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
